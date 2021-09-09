@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:google_fonts/google_fonts.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -10,65 +9,124 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  List<int> list = [1, 2, 3];
-  bool showNumber = true;
 
-  _handleClickButton() {
+  String fonts = 'Sarabun';
+  int number = 1;
+
+  _handleClickButton1() {
     setState(() {
-      list.add(list.length + 1);
+      fonts = 'Sarabun';
+      number = 1;
     });
   }
 
   _handleClickButton2() {
     setState(() {
-      showNumber = !showNumber;
+      fonts = 'Prompt';
+      number = 2;
     });
+  }
+
+  _handleClickButton3() {
+    setState(() {
+      fonts = 'Kanit';
+      number = 3;
+    });
+  }
+
+  _handleClickButton4() {
+    setState(() {
+      fonts = 'Chakra Petch';
+      number = 4;
+    });
+  }
+
+  _handleClickButton5() {
+    setState(() {
+      fonts = 'Mitr';
+      number = 5;
+    });
+  }
+
+  _showFonts() {
+    switch (number) {
+      case 1:
+        return Text('การเดินทางขากลับคงจะเหงาน่าดู',
+          style: GoogleFonts.sarabun(fontSize: 60.0),
+        );
+        break;
+      case 2:
+        return Text('การเดินทางขากลับคงจะเหงาน่าดู',
+          style: GoogleFonts.prompt(fontSize: 60.0),
+        );
+        break;
+      case 3:
+        return Text('การเดินทางขากลับคงจะเหงาน่าดู',
+          style: GoogleFonts.kanit(fontSize: 60.0),
+        );
+        break;
+      case 4:
+        return Text('การเดินทางขากลับคงจะเหงาน่าดู',
+          style: GoogleFonts.chakraPetch(fontSize: 60.0),
+        );
+        break;
+      case 5:
+        return Text('การเดินทางขากลับคงจะเหงาน่าดู',
+          style: GoogleFonts.mitr(fontSize: 60.0),
+        );
+        break;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('THAI FONT VIEWER'),
+      ),
+      backgroundColor: Colors.teal[50],
       body: Container(
-        color: Colors.amberAccent,
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                children: [
-                  Image.asset(
-                    'assets/images/logo_number.png',
-                    width: 240,
-                  ),
-                  Row(
+              Expanded(
+                child: Center(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextButton(
-                          onPressed: _handleClickButton, child: Text('TEST')),
-                      SizedBox(
-                        width: 20.0,
-                      ),
-                      TextButton(
-                          onPressed: _handleClickButton2, child: Text('TEST2')),
+                      _showFonts(),
                     ],
                   ),
-                  Image(
-                    image: AssetImage(showNumber
-                        ? 'assets/images/p.png'
-                        : 'assets/images/op.png'),
-                    width: 100,
-                    fit: BoxFit.contain,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.pink, width: 5.0),
-                      ),
-                    ),
-                  ),
-
-                ],
+                ),
               ),
+              Text(
+                'Font: $fonts', style: TextStyle(fontSize: 18.0),
+              ),
+
+              Card(
+                elevation: 5.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8.0,
+                      children: [
+                        ElevatedButton(onPressed: _handleClickButton1,
+                            child: Text('Sarabun')),
+                        ElevatedButton(onPressed: _handleClickButton2,
+                            child: Text('Prompt')),
+                        ElevatedButton(onPressed: _handleClickButton3,
+                            child: Text('Kanit')),
+                        ElevatedButton(onPressed: _handleClickButton4,
+                            child: Text('Chakra Petch')),
+                        ElevatedButton(onPressed: _handleClickButton5,
+                            child: Text('Mitr')),
+
+                      ]
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -76,3 +134,4 @@ class _GamePageState extends State<GamePage> {
     );
   }
 }
+
