@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:hello/pages/game/game_domino.dart';
+import 'package:hello/pages/game_domino.dart';
 import 'package:hello/pages/game/game_page.dart';
 void main() {
 /*
