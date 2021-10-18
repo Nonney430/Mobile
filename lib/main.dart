@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:hello/pages/game_domino.dart';
 import 'package:hello/pages/game/game_page.dart';
+import 'guess_teacher_age.dart';
 void main() {
 /*
   var random = Random().nextInt(99).toString();
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: GamePage(),
+      home: Age(),
     );
   }
 }
