@@ -51,7 +51,7 @@ class _AgeState extends State<Age> {
                     ),
                     ElevatedButton(onPressed: () => {
                       setState(() async {
-                        var res = await Api().submit('guess_teacher_age', {'year' : 25,'month' : 6});
+                        var res = await Api().submit('guess_teacher_age', {'year' : year.toInt(),'month' : month.toInt()});
                         print(year.toInt());
                         print(month.toInt());
                         _showMaterialDialog("ผลการทาย",res['text']);
